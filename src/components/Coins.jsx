@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { server } from '../index'
-import { Container, HStack, VStack, Image, Heading, Text, Button, RadioGroup, Radio } from '@chakra-ui/react'
+import { Container, HStack, Button, RadioGroup, Radio } from '@chakra-ui/react'
 import Loader from './Loader'
 import Error from './Error'
 import CoinCard from './CoinCard'
@@ -31,7 +31,6 @@ const Coins = () => {
             try {
                 const { data } = await axios.get(`${server}/coins/markets?vs_currency=${currency}&page=${page}`)
                 setcoins(data)
-
                 setloading(false)
             } catch (error) {
                 seterror(true)
@@ -41,7 +40,7 @@ const Coins = () => {
         }
         fetchCoins();
     }, [currency, page])
-    if (error) return <Error message="Error-while-fatching-coins" />
+    if (error) return <Error message="message='try  kiya but udhr error aaya web adrres me galti hai' " />
 
     return (
         <Container maxW={'container.xl'}>{loading ? (<Loader />) : (
@@ -63,7 +62,7 @@ const Coins = () => {
 
                             <CoinCard
                                 id={i.id}
-
+                                key={i.id}
                                 name={i.name}
                                 price={i.current_price}
                                 img={i.image}

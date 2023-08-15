@@ -29,7 +29,7 @@ const Home = () => {
       </motion.div>
 
       <Text
-        fontSize={"6xl"}
+        fontSize={"5xl"}
         textAlign={"center"}
         fontWeight={"thin"}
         color={"whiteAlpha.700"}

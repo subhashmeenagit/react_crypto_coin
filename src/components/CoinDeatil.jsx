@@ -1,10 +1,12 @@
-import { Box, Container, HStack, Radio, RadioGroup, VStack, Text, Center, Image, Stat, StatLabel, StatNumber, StatHelpText, StatArrow, Badge, Progress, Button } from '@chakra-ui/react'
+import { Box, Container, HStack, Radio, RadioGroup, VStack, Text, Image, Stat, StatLabel, StatNumber, StatHelpText, StatArrow, Badge, Progress, Button } from '@chakra-ui/react'
 import axios from 'axios'
 import React from 'react'
 import { server } from '../index'
 import Loader from './Loader'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+//ye chiz wo id excess krga jo apne render krane ke liye
+//app me di thi coin:id ye wali id hai
 import Error from './Error'
 import MyChart from './MyChart'
 
@@ -70,7 +72,6 @@ const CoinDeatil = () => {
         const { data: chartData } = await axios.get(`${server}/coins/${parms.id}/market_chart?vs_currency=${currency}&days=${days}`)
         setcoin(data)
         setchartarray(chartData.prices)
-        console.log(chartData.prices)
         setloading(false)
       } catch (error) {
         seterror(true)
@@ -81,7 +82,7 @@ const CoinDeatil = () => {
     fetchCoin();
   }, [parms.id, currency, days])
 
-  if (error) return <Error message="Error_while_fatching_coin" />
+  if (error) return <Error message="Error_while_fatching  the chart" />
 
   return (
 
@@ -114,7 +115,7 @@ const CoinDeatil = () => {
 
             <VStack spacing={'4'} p={'16'} alignItems={'flex-start'}>
               <Text fontSize={'small'} alignSelf={'center'} opacity={.7} >
-                Last upadte date {Date(coin.last_updated).split('G')[0]}
+                Last Upadte Date: {Date(coin.last_updated).split('G')[0]}
               </Text>
               <Image src={coin.image.large} w={'16'} h={'16'} objectFit={'contain'} />
 

@@ -21,28 +21,29 @@ ChartJS.register(
   Legend
 );
 
-const MyChart = ({arr=[],currency,days}) => {
+const MyChart = ({ arr = [], currency, days }) => {
 
-  const prices=[];
-  const date=[];
+  const prices = [];
+  const date = [];
 
 
-  for(let i=0;i<arr.length;i++){
-   
+  for (let i = 0; i < arr.length; i++) {
+
     if (days === "24h") date.push(new Date(arr[i][0]).toLocaleTimeString());
-    else                date.push(new Date(arr[i][0]).toLocaleDateString());
+    else date.push(new Date(arr[i][0]).toLocaleDateString());
     prices.push(arr[i][1]);
-  
+
   }
-    
+
   const data = {
     labels: date,
     datasets: [
       {
         label: `Price in ${currency}`,
         data: prices,
-        borderColor: "rgb(255,99,132)",
-        backgroundColor: "rgba(255,99,132,0.5)",
+        borderColor: 'rgb(27, 165, 80)',
+        // rgb(255, 99, 132)
+        backgroundColor: "green",
       },
     ],
   };

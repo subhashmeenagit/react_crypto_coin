@@ -9,8 +9,8 @@ const CoinCard = ({ name, id, symbol, img, price, currencySymbol = '₹' }) => {
         <>
             <Link to={`/coin/${id}`} >
                 <VStack w={52}
-                    shadow={'lg'} p={'8'}
-                    borderRadius={'lg'}
+                    shadow={'dark-lg'} p={'8'}
+                    borderRadius={'dark-lg'}
                     transition={'all 0.3s'}
                     m={'4'}
                     css={{
@@ -25,7 +25,7 @@ const CoinCard = ({ name, id, symbol, img, price, currencySymbol = '₹' }) => {
                         w={'10'}
                         h={'10'}
                         objectFit={'contain'}
-                        alt='' exchanges
+                        alt={name}
 
                     />
                     <Heading size={'md'} noOfLines={'1'}>{symbol}</Heading>
